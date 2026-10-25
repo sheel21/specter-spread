@@ -14,6 +14,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import config  # noqa: E402
+from specter.llm import cost_usd  # noqa: E402
 
 
 def table(title: str, groups: dict, per_run: bool = False) -> list[str]:
@@ -23,7 +24,9 @@ def table(title: str, groups: dict, per_run: bool = False) -> list[str]:
     for name, recs in sorted(groups.items()):
         calls = sum(1 for r in recs if not r["model_cache_hit"])
         tin, tc, tout = (sum(r[k] for r in recs) for k in ("input_tokens", "cached_input_tokens", "output_tokens"))
-        cost = sum(r["cost_usd"] for r in recs)
+        # Re-priced from the logged token counts with the current config prices, so older entries
+        # (logged under different prices) are comparable.
+        cost = sum(cost_usd(r["input_tokens"], r["cached_input_tokens"], r["output_tokens"]) for r in recs)
         if per_run:
             runs = len({r["run_id"] for r in recs}) or 1
             out.append(f"| {name} | {runs} | {calls / runs:.1f} | {tin / runs:,.0f} | {tc / runs:,.0f} | {tout / runs:,.0f} | "

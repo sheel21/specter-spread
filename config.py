@@ -26,9 +26,9 @@ PORTKEY_BASE_URL = "https://api.portkey.ai/v1"
 REASONING_EFFORT = "low"                 # routing, fix decisions and short answers don't need more
 MAX_OUTPUT_TOKENS = 2000                 # per model response, reasoning included
 
-# USD per 1M tokens, used for the cost panel. PLACEHOLDER RATES: replace them with gpt-6-luna's
-# real prices from your Portkey dashboard. Token counts are measured either way.
-PRICE_PER_MILLION = {"input": 1.25, "cached_input": 0.125, "output": 10.00}
+# USD per 1M tokens for gpt-6-luna (OpenAI standard API rates as published October 2026; requests
+# under 272K input tokens). Used for the cost panel and reports; token counts are measured either way.
+PRICE_PER_MILLION = {"input": 0.10, "cached_input": 0.01, "output": 0.50}
 
 # ---- cost optimizations ---------------------------------------------------------------
 # True (default): model-result cache and MD&A chunk cache; the Analyst sees only the top few

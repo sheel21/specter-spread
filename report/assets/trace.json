@@ -1,0 +1,50 @@
+{
+ "question": "Why did gross margin improve between FY2023 and FY2025?",
+ "activity": [
+  "ROUTERroute() \u2192 Analyst. Asks for an explanation of a company trend.",
+  "ANALYSTread_spread() Reviewing the spread and the filings\u2026",
+  "ANALYSTfetch_mdna() Harvey's skimming the FY2023 10-K. He only needs the parts that matter.",
+  "ANALYSTfetch_mdna() Harvey's skimming the FY2025 10-K. He only needs the parts that matter.",
+  "ANALYSTsearch_mdna() Searched MD&A for \u201cgross margin increase 2025 compared with 2023 product mix co\u201d: 5 excerpt(s).",
+  "ANALYSTsubmit_answer() Number audit: 8/9 figures trace to the spread or excerpts."
+ ],
+ "run": {
+  "run_id": "ea9e12ade7",
+  "tokens": {
+   "total": {
+    "calls": 6,
+    "input_tokens": 7818,
+    "cached_input_tokens": 3379,
+    "output_tokens": 611,
+    "cost_usd": 0.000783,
+    "cache_hits": 0
+   },
+   "by_agent": {
+    "Router": {
+     "calls": 1,
+     "input_tokens": 388,
+     "cached_input_tokens": 0,
+     "output_tokens": 46,
+     "cost_usd": 6.2e-05,
+     "cache_hits": 0
+    },
+    "Analyst": {
+     "calls": 5,
+     "input_tokens": 7430,
+     "cached_input_tokens": 3379,
+     "output_tokens": 565,
+     "cost_usd": 0.000721,
+     "cache_hits": 0
+    }
+   }
+  },
+  "budget": {
+   "tokens": 8429,
+   "max_tokens": 60000,
+   "model_calls": 6,
+   "max_model_calls": 16,
+   "tool_calls": 5,
+   "max_tool_calls": 40
+  }
+ }
+}

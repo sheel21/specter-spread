@@ -11,6 +11,9 @@ MGT 409 (AI Foundations for Managers) final project. Model: `gpt-6-luna` through
 
 ---
 
+**Report and slides:** [`report/report.html`](report/report.html) and [`report/slides.html`](report/slides.html)
+(self-contained; double-click to open). Rebuilt from the app's own logs by `report/build_report.py`.
+
 ## Run it from a fresh clone (about 5 minutes)
 
 Requires Python 3.11+ and internet access (SEC EDGAR + Portkey). No database, Docker, or Node.

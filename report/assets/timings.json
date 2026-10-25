@@ -1,0 +1,51 @@
+{
+ "NVDA 10y both (cold)": {
+  "seconds": 0.63,
+  "values": 1775,
+  "checks": {
+   "annual": {
+    "passed": 194,
+    "fixed": 0,
+    "flagged": 1
+   },
+   "quarterly": {
+    "passed": 785,
+    "fixed": 0,
+    "flagged": 5
+   }
+  },
+  "http": 3,
+  "tokens": 0
+ },
+ "NVDA 10y both (cached)": {
+  "seconds": 0.15,
+  "values": 1775,
+  "checks": {
+   "annual": {
+    "passed": 194,
+    "fixed": 0,
+    "flagged": 1
+   },
+   "quarterly": {
+    "passed": 785,
+    "fixed": 0,
+    "flagged": 5
+   }
+  },
+  "http": 0,
+  "tokens": 0
+ },
+ "JNJ 5y annual (cold)": {
+  "seconds": 0.27,
+  "values": 180,
+  "checks": {
+   "annual": {
+    "passed": 100,
+    "fixed": 0,
+    "flagged": 0
+   }
+  },
+  "http": 2,
+  "tokens": 0
+ }
+}
