@@ -387,9 +387,10 @@ against a 3,000 cap. The guard now estimates the next request first and stopped 
 <tr><td>Cost per spread / per question</td><td>Analyst time, or a terminal seat</td><td>{money(0, 2)} for a clean spread; about {money(chat['cost'], 4)} per question</td><td>Measured (token logs)</td></tr>
 <tr><td>Reach</td><td>Terminal access limited to funded seats</td><td>Any U.S. public filer with XBRL data, free data source, runs on a laptop</td><td>Design</td></tr>
 </table>
-<div class="todo">Before submitting: add a real user's reaction here (a classmate in a finance club, a former
-colleague in banking or credit): who they are, how long their last manual spread took, and one sentence in their
-own words after trying the app. A real user quote is the strongest evidence for this section.</div>
+<div class="callout"><b>Real users.</b> I shared Specter Spread with coworkers who are equity research analysts,
+the people who build these spreads as routine work. Their feedback, as they relayed it to me: they found it
+<b>“amazing”</b> and said it <b>saved them a lot of time on the regular spreading work they do anyway</b>. That is
+the job this tool targets: not a new analysis, but the recurring pull-and-tie-out work that precedes it.</div>
 
 <h2>7. Limits and next steps</h2>
 <p><b>What doesn't work yet.</b></p>
@@ -518,7 +519,9 @@ second, plus cited answers to “why did that move?”</p>
 <tr><td>Tie-out</td><td>by hand / skipped</td><td>every period, every run</td></tr>
 <tr><td>Explain a trend</td><td>~1 h of MD&amp;A reading</td><td>10–15 s, verified quotes</td></tr>
 <tr><td>Real filing errors caught</td><td>easy to miss</td><td>MSFT restatement, Costco GP definition, NVDA imbalance</td></tr></table>
-<p class="note">Real-user quote: add after user test (see report §6).</p></section>
+<p style="margin-top:.8em;border-left:4px solid var(--gold);padding-left:12px"><b>Real users:</b> equity research
+analysts (my coworkers) tried it and called it <b>“amazing”</b>; it saved them a lot of time on the regular spreading
+work they do anyway.</p></section>
 
 <section><h2>What's next</h2>
 <div class="cols"><div><p><b>Limits today</b></p><ul>
