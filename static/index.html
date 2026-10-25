@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Specter Spread</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="letterhead">
+    <div class="brand">
+      <div class="monogram" aria-hidden="true">S</div>
+      <div>
+        <h1>Specter Spread</h1>
+        <p class="tagline">Financial Spreads &amp; Counsel &middot; New York</p>
+      </div>
+    </div>
+    <div class="persona" role="radiogroup" aria-label="Persona">
+      <span class="persona-label">Counsel</span>
+      <button type="button" class="persona-btn active" data-persona="harvey" role="radio" aria-checked="true">Harvey</button>
+      <button type="button" class="persona-btn" data-persona="mike" role="radio" aria-checked="false">Mike</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <section class="card">
+        <h2>New Engagement</h2>
+        <form id="run-form" autocomplete="off">
+          <label class="field">
+            <span>Ticker</span>
+            <input id="ticker" name="ticker" placeholder="AAPL" maxlength="8" spellcheck="false" required>
+          </label>
+          <div class="examples" id="examples"></div>
+          <div class="row">
+            <label class="field">
+              <span>Years</span>
+              <select id="years"></select>
+            </label>
+            <div class="field">
+              <span>Periods</span>
+              <div class="segmented" id="period-type">
+                <button type="button" data-value="annual" class="active">Annual</button>
+                <button type="button" data-value="quarterly">Quarterly</button>
+                <button type="button" data-value="both">Both</button>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="run-btn" id="run-btn">Build the Spread</button>
+          <p class="form-error" id="form-error" role="alert"></p>
+        </form>
+      </section>
+
+      <section class="card chat-card">
+        <h2>Ask Counsel <span class="chat-who" id="chat-who">Harvey</span></h2>
+        <div class="chat-log" id="chat-log" aria-live="polite">
+          <div class="chat-empty" id="chat-empty">
+            <p>Build a spread, then ask why anything moved. Answers cite the 10-K or 10-Q.</p>
+            <div class="chat-suggestions" id="chat-suggestions"></div>
+          </div>
+        </div>
+        <form class="chat-form" id="chat-form" autocomplete="off">
+          <textarea id="chat-input" rows="2" maxlength="1000"
+                    placeholder="e.g. Why did gross margin change in FY2023?"></textarea>
+          <button type="submit" id="chat-send" aria-label="Send">Send</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Activity Log</h2>
+        <ol class="activity" id="activity">
+          <li class="muted">No activity yet. Pick a ticker and build a spread.</li>
+        </ol>
+      </section>
+    </aside>
+
+    <section class="results">
+      <div class="status" id="status" hidden></div>
+
+      <div class="empty" id="empty">
+        <div class="seal" aria-hidden="true">§</div>
+        <h2>The file is empty.</h2>
+        <p>Enter a ticker to pull its 10-K and 10-Q filings from SEC EDGAR and lay out the three statements, banker style.</p>
+      </div>
+
+      <div id="spread" hidden>
+        <div class="company">
+          <div>
+            <h2 id="company-name"></h2>
+            <p class="company-meta" id="company-meta"></p>
+          </div>
+          <div class="company-actions">
+            <div class="segmented" id="view-toggle" hidden>
+              <button type="button" data-value="annual" class="active">Annual</button>
+              <button type="button" data-value="quarterly">Quarterly</button>
+            </div>
+            <a class="download-btn" id="download-btn" href="#" download>Download Excel</a>
+          </div>
+        </div>
+        <nav class="tabs" id="tabs" role="tablist">
+          <button type="button" role="tab" data-tab="income" class="active">Income Statement</button>
+          <button type="button" role="tab" data-tab="balance">Balance Sheet</button>
+          <button type="button" role="tab" data-tab="cashflow">Cash Flow</button>
+        </nav>
+        <div class="table-wrap">
+          <table class="spread-table" id="spread-table"></table>
+        </div>
+        <p class="footnote">Hover a number for its XBRL tag and filing; click it to open the filing on EDGAR.
+          <span class="legend-derived">Italic</span> = computed from other lines.
+          <span class="legend-fixed">Gold edge</span> = re-extracted by the Checker.
+          <span class="legend-flag">Yellow</span> = failed a check; hover for the note. N/A = not filed, never estimated.</p>
+
+        <div class="panels">
+          <section class="card">
+            <h2>Revenue &amp; Net Income</h2>
+            <p class="chart-sub">USD millions</p>
+            <div class="chart" id="chart-income"></div>
+          </section>
+          <section class="card">
+            <h2>Margins</h2>
+            <p class="chart-sub">Percent of revenue</p>
+            <div class="chart" id="chart-margins"></div>
+          </section>
+        </div>
+
+        <div class="panels">
+          <section class="card">
+            <h2>Checker Results</h2>
+            <div class="check-counts" id="check-counts"></div>
+            <div id="check-list"></div>
+          </section>
+          <section class="card">
+            <h2>Tokens &amp; Cost</h2>
+            <div id="token-panel"><p class="muted">No model calls yet.</p></div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="tooltip" id="tooltip" hidden></div>
+  <script src="/static/charts.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>
