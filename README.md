@@ -17,7 +17,7 @@ Requires Python 3.11+ and internet access (SEC EDGAR + Portkey). No database, Do
 
 1. **Clone**
    ```bash
-   git clone <repo-url> specter-spread
+   git clone https://github.com/sheel21/specter-spread.git
    cd specter-spread
    ```
 2. **Create a virtual environment and install**
