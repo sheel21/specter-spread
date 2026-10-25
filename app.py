@@ -130,5 +130,6 @@ async def chat(body: dict, x_session_id: str | None = Header(default=None)):
 
 
 if __name__ == "__main__":
-    print(f"Specter Spread on http://{config.HOST}:{config.PORT}  (.env: {env_source()}, data mode: {config.DATA_MODE})")
+    print(f"Specter Spread on http://{config.HOST}:{config.PORT}  (.env: {env_source()}, data mode: {config.DATA_MODE})",
+          flush=True)
     uvicorn.run(app, host=config.HOST, port=config.PORT, reload=False, log_level="warning")
