@@ -220,8 +220,9 @@ def build_report(d: dict) -> str:
  <h1>Specter Spread</h1>
  <div class="sub">MGT 409 · AI Foundations for Managers · Final Project Report</div>
  <div class="meta"><b>{AUTHOR}</b><br>
- GitHub: <a href="{REPO}">{REPO}</a><br>
- App: runs locally from a fresh clone (README, about 5 minutes); no hosted link.</div>
+ GitHub repository (public): <a href="{REPO}">{REPO}</a><br>
+ Clone: <code style="background:#13294b;color:#fff">git clone {REPO}.git</code><br>
+ App: runs locally from a fresh clone (follow the README, about 5 minutes); no hosted link.</div>
 </header>
 <p class="pitch">Specter Spread is a conversational financial analyst that turns any U.S. public company's SEC
 filings into a checked, source-linked, banker-format spread in about a second, then answers “why did that move?”
@@ -461,7 +462,9 @@ def build_slides(d: dict) -> str:
 <section><div class="title-slide"><h1>Specter Spread</h1>
 <p style="font-size:1.3em;margin-top:.5em">Any public company's SEC filings → a checked, source-linked banker spread in a
 second, plus cited answers to “why did that move?”</p>
-<p>{AUTHOR} · MGT 409 Final Project · <span style="color:#fff">{REPO.replace('https://', '')}</span></p></div></section>
+<p>{AUTHOR} · MGT 409 Final Project</p>
+<p style="color:#fff">GitHub (public): <a href="{REPO}" style="color:#e6d3a3">{REPO}</a><br>
+<code style="font-size:.8em;color:#fff;background:transparent">git clone {REPO}.git</code></p></div></section>
 
 <section><h2>The problem: spreading a company by hand</h2>
 <div class="cols"><div><ul>
@@ -532,7 +535,9 @@ work they do anyway.</p></section>
 <li>Peer comps side by side + a DCF tab</li>
 <li>Segments from XBRL instance documents</li>
 <li>Semantic MD&amp;A retrieval</li>
-<li>Hosted, with a shared EDGAR cache for a whole class or credit team</li></ul></div></div></section>
+<li>Hosted, with a shared EDGAR cache for a whole class or credit team</li></ul></div></div>
+<p style="margin-top:1.2em;border-top:2px solid var(--gold);padding-top:.5em"><b>Code (public repo):</b>
+<a href="{REPO}">{REPO}</a> · run it: <code>git clone {REPO}.git</code>, then follow the README.</p></section>
 
 </div></div>
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
